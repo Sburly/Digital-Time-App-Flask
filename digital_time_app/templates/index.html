@@ -1,0 +1,82 @@
+{% from 'macros/fields.html' import render_text_field,render_date_field %}
+{% from 'macros/svgs.html' import cross, refresh %}
+{% extends "layout.html" %}
+{% block head_content %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index_style.css') }}" />
+{% endblock %}
+{% block main_content %}
+<div class="main__container">
+    <div class="main__datetime_display">
+        <span id="clock" class="display__clock">
+            <script>
+                // Create a variable linked to an element with a certain id
+                var clock = document.getElementById("clock");
+                // We use the set interval method to call a specific function every tot microseconds
+                setInterval(() => {fetch("{{ url_for('pages.get_time') }}").then(response => {response.text().then(t => {clock.innerHTML = t})
+                        });
+                    }, 1000);
+                // Same thing as the latter
+                var date = document.getElementById("date");
+                setInterval(() => {fetch("{{ url_for('pages.get_date') }}").then(response => {response.text().then(t => {date.innerHTML = t})
+                        });
+                    }, 5000);
+            </script> {{ current_time }}
+        </span>
+        <span id="date" class="display__date">
+            {{ current_date }}
+        </span>
+    </div>
+    <div class="main__display">
+        <form name="add_date" action="{{ url_for('pages.index') }}" method="post" novalidate class="form">
+            {{ form.hidden_tag() }}
+            {{ render_text_field(form.title, "Name of the date") }}
+            {{ render_date_field(form.selected_date) }}
+            {{ form.submit(class_="button button--form") }}
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash__list">
+                {% for message in messages %}
+                    <li class="flash__message">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <hr class="main__display--divider"/>
+        <div class="dates-container">
+        {% if not dates %}
+            <div class="empty-message__container">
+                <p class="empty-message">Add your entries here!</p>
+            </div>
+        {% else %}
+            {% for date in dates %}
+                <div class="date__block">
+                    <div class="date__block--display">
+                        <div class="date__block--single">
+                            <p class="date__title date__element">{{ date.title | truncate(30, true) }}</p>
+                            <time class="date__date date__element" datetime="{{ date.selected_date }}">• {{ date.selected_date }}</time>
+                        </div>
+                        <div class="date__block--single">
+                            <p id="timedelta" class="date__timedelta">{{ date.time_delta }}</p>
+                        </div>
+                    </div>
+                    <div class="container__button">
+                        <a href="{{ url_for('pages.update_timedelta', _id=date._id) }}">
+                            <button type="button" class="date__button" name="update_date" value="update_date">
+                                {{ refresh("date__button--icon date__icon--update") }}
+                            </button>
+                        </a>
+                        <a href="{{ url_for('pages.delete_date', _id=date._id) }}">
+                            <button type="button" class="date__button" name="delete_date" value="delete_date">
+                                {{ cross("date__button--icon date__icon--delete") }}
+                            </button>
+                        </a>
+                    </div>
+                    <hr class="dates-continer__hr"/>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

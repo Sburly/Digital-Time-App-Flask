@@ -1,0 +1,34 @@
+{% import 'macros/svgs.html' as icon %}
+{% macro header(email, theme) %}
+    <header class="header">
+        <div class="nav-container">
+            <a href="{{ url_for('pages.index') }}" class="header__logo">
+                {{ icon.logo("logo__icon") }}
+                <h1 class="header__title">Digital Time App</h1>
+            </a>
+            <nav class="nav">
+                {% if not email %}
+                    <a href="{{ url_for('pages.login') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.login') }}">
+                        <span class="nav__item">Log in</span>
+                    </a>
+                    <a href="{{ url_for('pages.register') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.register') }}">
+                        <span class="nav__item">Register</span>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('pages.logout') }}" class="nav__link">
+                        <span class="nav__item">Log out</span>
+                    </a>
+                {% endif %}
+                <a href="{{ url_for('pages.toggle_theme', current_page=request.path) }}" class="nav__link">
+                    <span class="nav__item">
+                        {% if theme == "dark" %}
+                            {{ icon.sun("nav__icon") }}
+                        {% else %}
+                            {{ icon.moon("nav__icon") }}
+                        {% endif %}
+                    </span>
+                </a>
+            </nav>
+        </div>
+    </header>
+{% endmacro %}

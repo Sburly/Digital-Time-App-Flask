@@ -1,0 +1,6 @@
+digital_time_app/.env
+digital_time_app/__pycache__
+.venv
+.venv/
+venv
+.flaskenv

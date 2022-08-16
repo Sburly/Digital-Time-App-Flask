@@ -1,0 +1,245 @@
+.main__datetime_display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background:var(--background-color-light);
+    border: var(--border);
+    border-radius: var(--big-border-radius);
+    max-width: 30rem;
+}
+
+.display__date,
+.display__clock {
+    display: block;
+}
+
+.display__clock {
+    padding-top: 1.5rem;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.display__date {
+    padding-bottom: 1.5rem;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.main__display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background: var(--background-color-light);
+    border: var(--border);
+    border-radius: var(--big-border-radius);
+    max-width: 50rem;
+    margin-top: 2rem;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 43% 27% 20%;
+    grid-column-gap: 30px;
+    padding: 1rem 3rem;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+}
+
+.button--form {
+    width: inherit;
+}
+
+.form__group {
+    width: inherit;
+    min-height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: top;
+    align-self: start;
+}
+
+.form__field {
+    width: inherit;
+    background: var(--background-color-widgets);
+    border: 2px solid var(--text-dark);
+    border-radius: var(--small-border-radius);
+    height: 3rem;
+    color: var(--text-dark);
+}
+
+.button--form {
+    background: var(--background-color);
+    border: 2px solid var(--text-dark);
+    max-height: 3rem;
+    color: var(--text-dark);
+    border-radius: var(--small-border-radius);
+    font-family: inherit;
+    font-weight: 600;
+}
+
+.button--form:hover {
+    background: var(--accent-color);
+}
+
+.form__title--input {
+    padding: 0 20px;
+    font: inherit;
+    vertical-align: top;
+}
+
+.form__date--input {
+    padding: 0 20px;
+}
+
+.form__title--input::placeholder,
+.form__date--input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.main__display--divider {
+    border: none;
+    height: 0.2rem;
+    width: 100%;
+    color: var(--text-dark); 
+    background-color: var(--text-dark);
+}
+
+/*###############################*/
+.dates-container {
+    width: 100%;
+}
+
+.date__block {
+    padding: 1rem 1.2rem 1rem 1.2rem;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    column-gap: 1rem;
+    height: 4.5rem;
+}
+
+.date__block--display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date__element {
+    display: inline;
+    font-size: 15px;
+}
+
+@media screen and (min-width: 60em) {
+    .date__element {
+      font-size: 17px;
+    }
+}
+  
+@media screen and (min-width: 75em) {
+    .date__element {
+        font-size: 18.72px;
+    }
+}
+
+.date__title {
+    font-weight: 600;
+}
+
+.date__timedelta {
+    font-size: 13px;
+}
+
+.container__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-right: 0.5rem;
+}
+
+.date__button{
+    background-color: transparent;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+}
+
+.date__button--icon {
+    display: block;
+    fill: #cccaca;
+    transform-origin: center center;
+}
+
+.date__icon--delete {
+    align-self: center;
+}
+
+.date__icon--delete:hover {
+    fill:#fb5d5d98;
+}
+
+.date__icon--update:hover {
+    fill: #64ff6498;
+}
+
+@media screen and (min-width: 60em) {
+    .date__timedelta {
+      font-size: 15px;
+    }
+}
+  
+@media screen and (min-width: 75em) {
+    .date__timedelta {
+        font-size: 17px;
+    }
+}
+
+.form__error {
+    display: block;
+    text-align: center;
+    color: var(--text-dark);
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    background: #fb5d5d;
+    border-radius: 10px;
+}
+
+.flash__list {
+    margin: 0 auto 1rem auto;
+}
+
+.flash__message {
+    display: block;
+    text-align: center;
+    color: var(--text-dark);
+    padding: 0.5rem 0.5rem;
+    background: #fb5d5d;
+    border-radius: 10px;
+}
+
+.dates-continer__hr {
+    margin-top: 0.5rem;
+    background: var(--text-dark);
+    height: 3px;
+    width: 100%;
+}
+
+.empty-message__container {
+    min-height: 3rem;
+    padding: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-message {
+    font-size: 16px;
+    font-weight: 600;
+}

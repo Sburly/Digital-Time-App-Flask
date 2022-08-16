@@ -1,0 +1,145 @@
+.form {
+    margin: 0 auto;
+    max-width: 30rem;
+    border: var(--border);
+    font-size: 1.2rem;
+    background:var(--background-color-light);
+    border: var(--border);
+    border-radius: var(--big-border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.form__container {
+    width: 100%;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.title {
+    align-self: center;
+    padding: 1rem 0rem;
+}
+
+.form__divider {
+    height: 3px;
+    background: var(--text-dark);
+    width: 100%;
+}
+  
+  
+@media screen and (min-width: 24.75em) {
+  .form__container {
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .form__container {
+    padding-left: 2.5rem;
+  }
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+  
+.form__label {
+  margin-bottom: 0.5rem;
+}
+
+
+.form__group {
+    width: inherit;
+    min-height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: top;
+    align-self: start;
+}
+
+.form__field {
+    width: inherit;
+    background: var(--background-color-widgets);
+    border: 2px solid var(--text-dark);
+    border-radius: var(--small-border-radius);
+    height: 3rem;
+    color: var(--text-dark);
+}
+
+.form__field::placeholder {
+    color: var(--placeholder-color);
+}
+
+.form__title--input {
+    padding: 0 20px;
+    font: inherit;
+    vertical-align: top;
+}
+  
+.form__small {
+  font-size: 0.83rem;
+  color: var(--text-dark);
+}
+  
+.form__link {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+  
+.form__link:hover {
+  color: #d05656;
+}
+.form__error,
+.form__flash {
+    display: block;
+    text-align: center;
+    color: var(--text-dark);
+    margin: 0.7rem 0rem;
+    padding: 0.5rem 0.5rem;
+    background: #fb5d5d;
+    border-radius: 10px;
+}
+
+.flash__list {
+    margin: 0 auto 1rem auto;
+}
+
+.flash__message {
+    display: block;
+    text-align: center;
+    color: var(--text-dark);
+    padding: 0.5rem 0.5rem;
+    background: #fb5d5d;
+    border-radius: 10px;
+}
+
+.form__flash--Success {
+  background-color: #64ff64;
+}
+
+.button__container {
+    display: flex;
+    justify-content: center;
+}
+  
+.button--form {
+    background: var(--background-color);
+    border: 2px solid var(--text-dark);
+    margin: 1rem;
+    width: 7rem;
+    height: 3rem;
+    color: var(--text-dark);
+    border-radius: var(--small-border-radius);
+    font-family: inherit;
+    font-weight: 600;
+}
+
+.button--form:hover {
+    background: var(--accent-color);
+}
+

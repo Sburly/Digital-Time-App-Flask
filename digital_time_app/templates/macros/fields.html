@@ -1,0 +1,19 @@
+{% macro render_text_field(field, placeholder) %}
+<div class="form__group">
+    {{ field(class_="form__field form__title--input", placeholder=placeholder, autocomplete="off") }}
+    
+    {% for error in field.errors %}
+        <span class="form__error">{{ error }}</span>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro render_date_field(field) %}
+<div class="form__group">
+    {{ field(id="date_date", class_="form__field form__date--input", type="text", onfocus="(this.type='date')", onblur="(this.type='text')", placeholder="Day/Month/Year", autocomplete="off") }}
+
+    {% for error in field.errors %}
+        <span class="form__error">{{ error }}</span>
+    {% endfor %}
+</div>
+{% endmacro %}
